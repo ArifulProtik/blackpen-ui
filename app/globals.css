@@ -66,4 +66,7 @@
   body {
     @apply bg-background text-foreground;
   }
+  .active-btn {
+    @apply rounded-lg bg-muted text-muted-foreground;
+  }
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
+import './editor.css';
 import './globals.css';
 
 const inter = Inter({
@@ -21,7 +22,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased font-inter`}
+        className={`${inter.variable} ${playfair.variable} font-inter antialiased`}
       >
         {children}
       </body>
