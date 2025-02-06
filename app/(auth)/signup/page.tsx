@@ -1,31 +1,20 @@
 'use client';
-import AuthForm from '@/components/AuthForm';
-import { AUTH_FORM_TYPE } from '@/constants/form';
-import { SignUpSchema } from '@/lib/form-validation';
 import Link from 'next/link';
+import SIngupForm from './singup-form';
 
 const SignUp = () => {
   return (
     <>
       <title> Sign Up - BlackPen </title>
       <div className="flex flex-col gap-2">
-        <h1 className="text-center text-2xl md:text-3xl font-semibold">
+        <h1 className="text-center text-2xl font-semibold md:text-3xl">
           Sign Up
         </h1>
-        <p className="text-center text-base md:text-lg text-muted-foreground">
+        <p className="text-center text-base text-muted-foreground md:text-lg">
           Create an account
         </p>
-        <AuthForm
-          type={AUTH_FORM_TYPE.Signup}
-          schema={SignUpSchema}
-          defaultValues={{
-            name: '',
-            email: '',
-            password: '',
-            confirm_password: '',
-          }}
-          onSubmit={() => Promise.resolve({ success: true })}
-        />
+        <SIngupForm />
+
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{' '}
           <Link href="/signin" className="text-primary">

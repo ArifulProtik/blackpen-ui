@@ -1,28 +1,22 @@
-'use client';
-import AuthForm from '@/components/AuthForm';
-import { AUTH_FORM_TYPE } from '@/constants/form';
-import { SignInSchema } from '@/lib/form-validation';
+import { Metadata } from 'next';
 import Link from 'next/link';
+import SigninInform from './singin-form';
+
+export const metadata: Metadata = {
+  title: 'Sign In - BlackPen',
+  description: 'Signin to your account',
+};
 
 const SinginPage = () => {
   return (
     <>
-      <title> Sign In - BlackPen </title>
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-medium text-center">Signin</h1>
-        <p className="text-base font-medium text-muted-foreground text-center">
+        <h1 className="text-center text-2xl font-medium">Signin</h1>
+        <p className="text-center text-base font-medium text-muted-foreground">
           Signin to your account
         </p>
 
-        <AuthForm
-          type={AUTH_FORM_TYPE.Signin}
-          schema={SignInSchema}
-          defaultValues={{
-            email: '',
-            password: '',
-          }}
-          onSubmit={() => Promise.resolve({ success: true })}
-        />
+        <SigninInform />
 
         <p className="text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{' '}

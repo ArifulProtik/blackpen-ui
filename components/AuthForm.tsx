@@ -28,13 +28,16 @@ interface AuthFormProps<T extends FieldValues> {
   type: string;
   schema: ZodType<T>;
   defaultValues: T;
-  onSubmit: (data: T) => Promise<{ success: boolean; error?: string }>;
+  loading: boolean;
+  // eslint-disable-next-line no-unused-vars
+  onSubmit: (data: T) => Promise<void>;
 }
 
 const AuthForm = <T extends FieldValues>({
   type,
   schema,
   defaultValues,
+  loading,
   onSubmit,
 }: AuthFormProps<T>) => {
   const isSingin = type === AUTH_FORM_TYPE.Signin;
@@ -79,7 +82,7 @@ const AuthForm = <T extends FieldValues>({
             )}
           />
         ))}
-        <Button className="w-full mt-8" type="submit">
+        <Button disabled={loading} className="mt-8 w-full" type="submit">
           {isSingin ? 'Sign In' : 'Sign Up'}
         </Button>
       </form>
