@@ -1,16 +1,24 @@
 'use client';
+import { useMeQuery } from '@/graphql/queries/user.queries';
 import { useAuthStore } from '@/store/auth-store';
-import React, { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 const AuthWrapper = ({ children }: { children: ReactNode }) => {
-  const { isInitialized, isAuthenticated, User, token } = useAuthStore();
-  useEffect(() => {
-    console.log('AuthWrapper mounted');
-  }, []);
+  const { signOut, isInitialized } = useAuthStore();
+  const { data, loading, error } = useMeQuery();
 
+  useEffect(() => {
+    if (data && !loading) {
+      useAuthStore.setState({ User: data.me });
+    }
+    if (error) {
+      signOut();
+    }
+  }, [data, loading, error, signOut]);
   if (!isInitialized) {
-    return null;
+    return <>Loading</>;
   }
+
   return <>{children}</>;
 };
 

@@ -80,7 +80,10 @@ const Editor = () => {
           </>
         )}
 
-        <EditorContent editor={editor} className="min-h-screen w-full py-4" />
+        <EditorContent
+          editor={editor}
+          className="min-h-screen w-full py-4 outline-none"
+        />
       </div>
     </>
   );

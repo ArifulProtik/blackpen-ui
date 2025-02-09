@@ -1,5 +1,8 @@
+.tiptap {
+  @apply outline-none !important;
+}
 .ProseMirror {
-  @apply z-0 mx-auto caret-black outline-0;
+  @apply z-0 mx-auto caret-black outline-none;
 
   .selection {
     @apply inline;
