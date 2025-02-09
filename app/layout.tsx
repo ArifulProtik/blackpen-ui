@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './editor.css';
 import './globals.css';
+import AuthWrapper from '@/components/AuthWrapper';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -26,7 +27,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body
         className={`${inter.variable} ${playfair.variable} font-inter antialiased`}
       >
-        <ApolloWrapper>{children}</ApolloWrapper>
+        <ApolloWrapper>
+          <AuthWrapper>{children}</AuthWrapper>
+        </ApolloWrapper>
       </body>
     </html>
   );

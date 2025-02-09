@@ -1,7 +1,8 @@
 import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
+import { ReactNode } from 'react';
 
-const Homelayout = ({ children }: { children: React.ReactNode }) => {
+const Homelayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <NavBar />

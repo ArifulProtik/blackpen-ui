@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 type TitleInputProps = {
   value: string;
   onChange: (value: string) => void;

@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { useFileUpload } from '@/hooks/useUploader';
 import { ImageIcon, X } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { ChangeEvent, useEffect, useRef } from 'react';
 import { Input } from '../ui/input';
 type ImageUploaderProps = {
   onImageUpload: (url: string | null) => void;
@@ -12,9 +13,7 @@ const ImageUploader = ({ onImageUpload }: ImageUploaderProps) => {
   const { isUploading, error, imgUrl, uploadFile, resetUpload } =
     useFileUpload();
 
-  const handleImageUpload = async (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       await uploadFile(file);

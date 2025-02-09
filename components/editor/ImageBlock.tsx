@@ -1,6 +1,6 @@
 import { useFileUpload } from '@/hooks/useUploader';
 import { Editor } from '@tiptap/react';
-import { useEffect, useRef } from 'react';
+import { ChangeEvent, useEffect, useRef } from 'react';
 
 interface ImageUploaderProps {
   editor: Editor;
@@ -12,9 +12,7 @@ export const useImageUploader = ({ editor }: { editor: Editor }) => {
   const { uploadFile, imgUrl, isUploading, resetUpload } = useFileUpload();
   const imagePositionRef = useRef<number | null>(0);
 
-  const handleImageUpload = async (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
